@@ -21,6 +21,17 @@ Vue.createApp({
                 console.error("Error fetching users:", ex); // Log the error
                 this.error = ex.message || "No Users"; // More informative error handling
             }
+        },
+        async clearUsers() {
+            try {
+                
+                
+                this.users = []; // Clear the users array
+                this.error = null; // Clear the error if successful
+            } catch (ex) {
+                console.error("Error deleting users:", ex); // Log the error
+                this.error = ex.message || "No Users"; // More informative error handling
+            }
         }
         
         

@@ -9,18 +9,40 @@
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <title>BookClub_2.0</title>
         <style>
-            button {
-                margin: 5px 5px 5px 5px
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: #f8f9fa;
+            }
+            #app {
+                text-align: center;
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            button, .btn-secondary {
+                margin: 10px;
+                padding: 10px 20px;
+                font-size: 16px;
+                border-radius: 5px;
             }
         </style>
     </head>
 <body>
     <div id="app">
-        <button @click="getUsers">Hent brugere</button>
+        <h1 class="mb-4">BookClub 2.0</h1>
+        
+        <button class="btn btn-primary" @click="getUsers">Hent brugere</button>
+        <button class ="btn btn-primary" @click="clearUsers">Clear list</button>
         <a href="register.html" class="btn btn-secondary">Opret Bruger</a>
-        <p v-if="error">{{ error }}</p>
+        
+        <p v-if="error" class="text-danger mt-3">{{ error }}</p>
 
-        <ol v-if="users.length > 0">
+        <ol v-if="users.length > 0" class="mt-4">
             <li v-for="user in users" :key="user.id">
                 {{ user.userName }} - {{ user.email }} - {{ user.role }}
             </li>

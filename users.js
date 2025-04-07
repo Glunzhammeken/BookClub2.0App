@@ -38,6 +38,7 @@ Vue.createApp({
                 if (!this.user) {
                     this.errorGet = "No user with that Id"; // More informative error handling
                 }
+                this.updateMessage = null; // Clear the update message if user is found
             } catch (ex) {
                 console.error("Error fetching user:", ex); // Log the error
                 this.errorGet ="No User"; // More informative error handling
@@ -74,17 +75,22 @@ Vue.createApp({
         async updateUser() {
             const url = baseUri + "/users/" + this.user.id;
             try {
-                response = await axios.put(url, this.updateData);
-                this.updateMessage = "response " + response.status + " " + response.statusText;
-                this.getUsers();
-                this.user= null; // Clear the user after update
-                
-                
+                const response = await axios.put(url, this.updateData);
+                this.updateMessage = "Bruger opdateret! Status: " + response.status + " " + response.statusText;
+                this.getUsers(); // Opdater brugerlisten
+                this.user = null; // Ryd den valgte bruger efter opdatering
+                this.updateData = { id: 0, userName: "", email: "", passwordHash: "", role: "" }; // Nulstil updateData
+                this.error = null; // Ryd fejlbeskeder
             } catch (ex) {
-                console.log(updateData);
-                alert(ex.message)
+                if (ex.response && ex.response.data) {
+                    // Hvis backend returnerer en fejlbesked, vis den
+                    this.error = ex.response.data;
+                } else {
+                    // Generisk fejlbesked, hvis ingen specifik besked er tilgængelig
+                    this.error = "Der opstod en fejl under opdateringen.";
+                }
+                console.error("Error updating user:", ex.response?.data || ex);
             }
-            
         }
         
         

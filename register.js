@@ -22,6 +22,11 @@ const baseUri = "http://localhost:5279/api/users";
 
                         this.message = "Bruger oprettet! Gå til login.";
                         console.log(response.data);
+                        this.userName = "";
+                        this.email = "";
+                        this.password = "";
+                        this.role = "";
+                        
                     } catch (err) {
                         this.message = err.response?.data || "Der opstod en fejl.";
                         console.error(err.response?.data || err);

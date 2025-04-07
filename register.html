@@ -9,25 +9,45 @@
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <title>Opret Bruger</title>
         <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: #f8f9fa;
+            }
+            #app {
+                text-align: center;
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
             input, button {
-                margin: 5px 0;
+                margin: 10px 0;
                 display: block;
+                width: 100%;
+            }
+            button, .btn-secondary {
+                padding: 10px 20px;
+                font-size: 16px;
+                border-radius: 5px;
             }
         </style>
     </head>
 <body>
-    <div id="app" class="container mt-5">
-        <h2>Opret bruger</h2>
+    <div id="app">
+        <h2 class="mb-4">Opret Bruger</h2>
         <input v-model="userName" placeholder="Brugernavn" class="form-control">
         <input v-model="email" type="email" placeholder="Email" class="form-control">
         <input v-model="password" type="password" placeholder="Password" class="form-control">
         <input v-model="role" placeholder="Rolle" class="form-control">
         <button @click="register" class="btn btn-primary">Opret</button>
         <p v-if="message" class="mt-3">{{ message }}</p>
+        <a href="index.html" class="btn btn-secondary mt-3">Tilbage til Forsiden</a>
     </div>
 
-    <a href="index.html" class="btn btn-secondary">Tilbage til Forsiden</a>
     <script src="register.js"></script>
-    
 </body>
 </html>

@@ -29,6 +29,7 @@
                 padding: 10px 20px;
                 font-size: 16px;
                 border-radius: 5px;
+                background-color: blue;
             }
         </style>
     </head>
@@ -36,17 +37,13 @@
     <div id="app">
         <h1 class="mb-4">BookClub 2.0</h1>
         
-        <button class="btn btn-primary" @click="getUsers">Hent brugere</button>
-        <button class ="btn btn-primary" @click="clearUsers">Clear list</button>
-        <a href="register.html" class="btn btn-secondary">Opret Bruger</a>
         
-        <p v-if="error" class="text-danger mt-3">{{ error }}</p>
-
-        <ol v-if="users.length > 0" class="mt-4">
-            <li v-for="user in users" :key="user.id">
-                {{ user.userName }} - {{ user.email }} - {{ user.role }}
-            </li>
-        </ol>
+        <a href="register.html" class="btn btn-secondary">Opret Bruger</a>
+        <a href="users.html" class="btn btn-secondary">Brugere</a>
+        
+        
+        
+       
     </div>
 
     <script src="index.js"></script>

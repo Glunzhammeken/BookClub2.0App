@@ -72,14 +72,16 @@ Vue.createApp({
             }
         },
         async updateUser() {
-            const url = baseUri + "/" + this.user.id;
+            const url = baseUri + "/users/" + this.user.id;
             try {
                 response = await axios.put(url, this.updateData);
                 this.updateMessage = "response " + response.status + " " + response.statusText;
                 this.getUsers();
+                this.user= null; // Clear the user after update
+                
                 
             } catch (ex) {
-                
+                console.log(updateData);
                 alert(ex.message)
             }
             

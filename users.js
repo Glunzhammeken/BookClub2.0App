@@ -6,7 +6,7 @@ Vue.createApp({
             users: [],
             error: "",
             errorGet:"",
-            errorDelete:"",
+            msgDelete:"",
             userId: null,
             user: null,
             deleteUserId: null,
@@ -63,9 +63,10 @@ Vue.createApp({
                 this.deleteUserId = null; // Clear the deleteUserId after deletion
                 // Refresh the user list after deletion
                 await this.getUsers();
+                this.msgDelete = "Bruger slettet!"; // Success message
             } catch (ex) {
                 if (ex.response && ex.response.status === 404) {
-                    this.errorDelete = "No user with that ID"; // Specific error message for 404
+                    this.msgDelete = "No user with that ID"; // Specific error message for 404
                 } else {
                     console.error("Error deleting user:", ex);
                     this.error = ex.message || "Failed to delete user";
@@ -76,7 +77,7 @@ Vue.createApp({
             const url = baseUri + "/users/" + this.user.id;
             try {
                 const response = await axios.put(url, this.updateData);
-                this.updateMessage = "Bruger opdateret! Status: " + response.status + " " + response.statusText;
+                this.updateMessage = "Bruger opdateret!"; // Success message
                 this.getUsers(); // Opdater brugerlisten
                 this.user = null; // Ryd den valgte bruger efter opdatering
                 this.updateData = { id: 0, userName: "", email: "", passwordHash: "", role: "" }; // Nulstil updateData

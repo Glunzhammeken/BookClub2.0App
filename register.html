@@ -39,13 +39,13 @@
 <body>
     <div id="app">
         <h2 class="mb-4">Opret Bruger</h2>
-        <input v-model="userName" placeholder="Brugernavn" class="form-control">
-        <input v-model="email" type="email" placeholder="Email" class="form-control">
-        <input v-model="password" type="password" placeholder="Password" class="form-control">
-        <input v-model="role" placeholder="Rolle" class="form-control">
-        <button @click="register" class="btn btn-primary">Opret</button>
-        <p v-if="message" class="mt-3">{{ message }}</p>
-        <a href="index.html" class="btn btn-secondary mt-3">Tilbage til Forsiden</a>
+        <input id="userName" v-model="userName" placeholder="Brugernavn" class="form-control">
+        <input id="email" v-model="email" type="email" placeholder="Email" class="form-control">
+        <input id="password" v-model="password" type="password" placeholder="Password" class="form-control">
+        <input id="role" v-model="role" placeholder="Rolle" class="form-control">
+        <button id="registerButton" @click="register" class="btn btn-primary">Opret</button>
+        <p id="msg" v-if="message" class="mt-3">{{ message }}</p>
+        <a id="indexButton" href="index.html" class="btn btn-secondary mt-3">Tilbage til Forsiden</a>
     </div>
 
     <script src="register.js"></script>

@@ -20,7 +20,7 @@ const baseUri = "http://localhost:5279/api/users";
                             role: this.role,
                         });
 
-                        this.message = "Bruger oprettet! Gå til login.";
+                        this.message = "Bruger oprettet!";
                         console.log(response.data);
                         this.userName = "";
                         this.email = "";

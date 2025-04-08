@@ -7,16 +7,22 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-        <title>BookClub_2.0</title>
+        <title>All Users</title>
         <style>
             body {
                 display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
+                flex-direction: column; /* Sørg for, at indholdet stables lodret */
+                min-height: 100vh; /* Tillad indhold at overstige viewport-højden */
                 margin: 0;
                 background-color: #f8f9fa;
+                overflow-y: auto; /* Tillad lodret scrolling */
             }
+
+            html {
+                height: 100%; /* Sørg for, at HTML-elementet fylder hele højden */
+                overflow-y: auto; /* Tillad scrolling, hvis indholdet overstiger højden */
+            }
+
             #app {
                 text-align: center;
                 background: white;
@@ -36,15 +42,15 @@
     <div id="app">
         <h1 class="mb-4">BookClub 2.0</h1>
         
-        <button class="btn btn-primary" @click="getUsers">Hent brugere</button>
-        <button class ="btn btn-primary" @click="clearUsers">Clear list</button>
+        <button id="getAllUsers" class="btn btn-primary" @click="getUsers">Hent brugere</button>
+        <button id="clearAllUsers" class ="btn btn-primary" @click="clearUsers">Clear list</button>
         
         <a href="register.html" class="btn btn-secondary">Opret Bruger</a>
         <br><br>
         <h3>Delete</h3>
-        <input type ="number" v-model="deleteUserId" placeholder="Bruger ID" class="form-control mb-2" style="width: 200px; display: inline-block;">
-        <button class="btn btn-danger" @click="deleteUser(deleteUserId)">Slet Bruger</button>
-        <p v-if="errorDelete" class="text-danger mt-3">{{ errorDelete }}</p>
+        <input id="deleteUserInput"type ="number" v-model="deleteUserId" placeholder="Bruger ID" class="form-control mb-2" style="width: 200px; display: inline-block;">
+        <button id="deleteUser" class="btn btn-danger" @click="deleteUser(deleteUserId)">Slet Bruger</button>
+        <p v-if="msgDelete" class="text-danger mt-3">{{ msgDelete }}</p>
         <br><br>
         <h3>Update</h3>
         <input type="number" v-model="userId" placeholder="Bruger ID" class="form-control mb-2" style="width: 200px; display: inline-block;">
@@ -89,7 +95,7 @@
         
         <p v-if="error" class="text-danger mt-3">{{ error }}</p>
 
-        <table v-if="users.length > 0" class="table table-striped mt-4">
+        <table id="allUsers" v-if="users.length > 0" class="table table-striped mt-4">
             <thead>
                 <tr>
                     <th>ID</th>

@@ -102,6 +102,8 @@
                     <th>Brugernavn</th>
                     <th>Email</th>
                     <th>Rolle</th>
+                    <th>Ejede Bogklubber</th>
+                    <th>Medlem af Bogklubber</th>
                 </tr>
             </thead>
             <tbody>
@@ -110,6 +112,8 @@
                     <td>{{ user.userName }}</td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.role }}</td>
+                    <td>{{ user.ownedBookClubsCount }}</td>
+                    <td>{{ user.memberOfBookClubsCount }}</td>
                 </tr>
             </tbody>
         </table>

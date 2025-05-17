@@ -23,11 +23,25 @@ Vue.createApp({
             try {
                 const response = await axios.get(baseUri + "/users");
                 console.log("Response data:", response.data);
-                this.users = response.data; // Fix assignment
-                this.error = null; // Clear the error if successful
+
+                // Naviger til $values og udtræk brugere
+                if (response.data && response.data.$values) {
+                    this.users = response.data.$values.map(user => ({
+                        id: user.id,
+                        userName: user.userName,
+                        email: user.email,
+                        role: user.role,
+                        ownedBookClubsCount: user.ownedBookClubs?.$values?.length || 0,
+                        memberOfBookClubsCount: user.memberOfBookClubs?.$values?.length || 0
+                    }));
+                } else {
+                    this.users = []; // Hvis der ikke er data, sæt en tom liste
+                }
+
+                this.error = null; // Ryd fejl, hvis det lykkes
             } catch (ex) {
-                console.error("Error fetching users:", ex); // Log the error
-                this.error = ex.message || "No Users"; // More informative error handling
+                console.error("Error fetching users:", ex); // Log fejlen
+                this.error = ex.message || "No Users"; // Mere informativ fejlmeddelelse
             }
         },
         async getUser(userId) {

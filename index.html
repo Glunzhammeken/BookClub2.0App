@@ -1,53 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-        <title>BookClub_2.0</title>
-        <style>
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-                background-color: #f8f9fa;
-            }
-            #app {
-                text-align: center;
-                background: white;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            }
-            button, .btn-secondary {
-                margin: 10px;
-                padding: 10px 20px;
-                font-size: 16px;
-                border-radius: 5px;
-                background-color: blue;
-            }
-        </style>
-    </head>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>BookClub 2.0 - Forside</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+        #main {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn-primary {
+            font-size: 18px;
+            padding: 12px 30px;
+        }
+    </style>
+</head>
 <body>
-    <div id="app">
-        <h1 class="mb-4">BookClub 2.0</h1>
-        
-        
-        <a href="register.html" id="registerButton" class="btn btn-secondary">Opret Bruger</a>
-        <a href="users.html" id="usersButton" class="btn btn-secondary">Brugere</a>
-        <a href="registerBookClub.html" id="registerBookClub" class="btn btn-secondary">Opret BookClub</a>
-        
-        
-        
-        
-       
+    <div id="main">
+        <h1>Velkommen til BookClub 2.0</h1>
+        <a href="AdminIndex.html" class="btn btn-primary mt-4">Gå til Admin</a>
     </div>
-
-    <script src="index.js"></script>
 </body>
 </html>

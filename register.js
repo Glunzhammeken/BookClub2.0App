@@ -1,5 +1,15 @@
 const baseUri = "http://localhost:5279/api/users";
 
+        const urlParams = new URLSearchParams(window.location.search);
+        const from = urlParams.get('from');
+        console.log("from:", from); // Tilføj denne linje
+        let backLink = "index.html";
+        let backText = "Tilbage til Forsiden";
+        if (from === "admin") {
+            backLink = "AdminIndex.html";
+            backText = "Tilbage Til Admin Forsiden";
+        }
+
         const app = Vue.createApp({
             data() {
                 return {
@@ -8,6 +18,8 @@ const baseUri = "http://localhost:5279/api/users";
                     password: "",
                     message: "",
                     role: "",
+                    backLink: backLink,
+                    backText: backText
                 };
             },
             methods: {
@@ -36,4 +48,3 @@ const baseUri = "http://localhost:5279/api/users";
         });
 
         app.mount("#app");
-    

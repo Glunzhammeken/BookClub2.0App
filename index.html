@@ -26,12 +26,24 @@
             font-size: 18px;
             padding: 12px 30px;
         }
+          button, .btn-secondary {
+                margin: 10px;
+                padding: 10px 20px;
+                font-size: 16px;
+                border-radius: 5px;
+                background-color: blue;
+            }
+        .position-absolute {
+            position: absolute !important;
+        }
     </style>
 </head>
 <body>
+    <a href="AdminIndex.html" class="btn btn-primary position-absolute m-4" style="top: 0; left: 0;">Gå til Admin</a>
     <div id="main">
         <h1>Velkommen til BookClub 2.0</h1>
-        <a href="AdminIndex.html" class="btn btn-primary mt-4">Gå til Admin</a>
+         <a href="register.html?from=index" id="registerButton" class="btn btn-secondary">SIGN UP</a>
+         <a href="Login.html" id="loginButton" class="btn btn-secondary">SIGN IN</a>
     </div>
 </body>
 </html>

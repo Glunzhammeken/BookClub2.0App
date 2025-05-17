@@ -45,7 +45,7 @@
         <input id="role" v-model="role" placeholder="Rolle" class="form-control">
         <button id="registerButton" @click="register" class="btn btn-primary">Opret</button>
         <p id="msg" v-if="message" class="mt-3">{{ message }}</p>
-        <a id="indexButton" href="index.html" class="btn btn-secondary mt-3">Tilbage til Forsiden</a>
+        <a id="indexButton" :href="backLink" class="btn btn-secondary mt-3">{{backText}}</a>
     </div>
 
     <script src="register.js"></script>
